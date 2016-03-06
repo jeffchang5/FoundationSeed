@@ -1,10 +1,12 @@
 var home = require('../app/controllers/home');
-
+var express = require('express');
 
 
 module.exports = function (app, config) {
     app.set('view engine', 'jade');
     app.set('views', config.root + '/app/views');
+    app.use(express.static(config.root + '/public'))
+    console.log(config.root + '/public');
     app.get('/', home.index);
 
     app.use(function (err, req, res, next) {
