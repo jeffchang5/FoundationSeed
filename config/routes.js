@@ -5,7 +5,8 @@ var express = require('express');
 module.exports = function (app, config) {
     app.set('view engine', 'jade');
     app.set('views', config.root + '/app/views');
-    app.use(express.static(config.root + '/public'))
+    app.use(express.static(config.root + '/public'));
+    app.use(express.static(config.root + '/bower_components'));
     console.log(config.root + '/public');
     app.get('/', home.index);
 
